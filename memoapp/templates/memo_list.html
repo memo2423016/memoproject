@@ -1,0 +1,34 @@
+<div class="album py-5 bg-light">
+    <div class="container">
+        <!-- 行要素 -->
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <!-- レコードを1行ずつ取り出す -->
+            {% for record in object_list %}
+            <!-- 列要素 -->
+            <div class="col">
+                <div class="card shadow-sm">
+                    <!-- タイトルとボタンを出力するブロック -->
+                    <div class="card-body">
+                        <p class="card-text">
+                            {{record.title}}
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <!-- 詳細ページ -->
+                                <button type="button"
+                                        class="btn btn-sm btn-outline-primary"onclick="location.href='{% url 'memo:memo_detail' record.pk %}'">閲覧</button>
+                                <!-- カテゴリ表示 -->
+                                <button type="button"
+                                        class="btn btn-sm btn-outline-primary"onclick="location.href='{% url 'memo:memo_cat' category=record.category.id %}'">{{record.category.title}}一覧</button>
+                                <!-- 編集ページ -->
+                                <button type="button"
+                                        class="btn btn-sm btn-outline-primary"onclick="location.href='{% url 'memo:update_memo' record.pk %}'">編集</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

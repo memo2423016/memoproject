@@ -1,0 +1,20 @@
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            <!-- 内容 -->
+            <h1 class="fw-light">メモ帳</h1>
+            <p>
+                <!-- ナビゲーションボタン -->
+                {% if user.is_authenticated %}
+                <!-- ログイン中 -->
+                <a href="{% url 'memo:create_memo' %}" class="btn btn-primary my-2">メモ作成</a>
+                <a href="{% url 'accounts:logout' %}" class="btn btn-secondary my-2">ログアウト</a>
+                {% else %}
+                <!-- ログアウト中 -->
+                <a href="{% url 'accounts:signup' %}" class="btn btn-primary my-2">今すぐサインアップ</a>
+                <a href="{% url 'accounts:login' %}" class="btn btn-secondary my-2">登録済みの方はログイン</a>
+                {% endif %}
+            </p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Memo Detail{% endblock %}
+
+      {% block contents %}
+      <br>
+      <div class="container">
+        <!-- 行 -->
+        <div class="row">
+          <!-- 列 -->
+          <div class="col offset-3">
+            <!-- タイトル -->
+            <h2>{{object.title}}</h2>
+            <!-- メモ -->
+            <p>{{object.note}}</p>
+            <br>
+            <!-- 投稿日時 -->
+            <p>{{object.posted_at}}に作成</p>
+            <!-- 削除ボタン -->
+            <a href="{% url 'memo:memo_delete' object.pk %}" class="btn btn-primary my-2">削除する</a>
+            <!-- 編集ボタン -->
+            <a href="{% url 'memo:update_memo' object.pk %}" class="btn btn-primary my-2">編集する</a>
+          </dv>
+        </dv>
+      </dv>
+      {% endblock %}
